@@ -53,4 +53,12 @@ public interface UserMapper {
     @UpdateProvider(type = UserProvider.class, method = "buildUpdateByIdSql")
     void updateById(@Param("u") User user);
 
+
+
+    @Select("SELECT EXISTS(SELECT * FROM users WHERE email = #{email})")
+    boolean existByEmail(String email);
+
+
+    @Select("SELECT EXISTS(SELECT * FROM roles WHERE id = #{roleId})")
+    boolean checkRoleId(Integer roleId);
 }

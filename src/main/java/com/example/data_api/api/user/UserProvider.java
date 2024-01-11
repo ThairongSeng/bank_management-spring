@@ -76,4 +76,5 @@ public class UserProvider {
             WHERE("id = #{u.id}");
         }}.toString();
     }
+
 }
